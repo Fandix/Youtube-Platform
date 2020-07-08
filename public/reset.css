@@ -28,9 +28,17 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html,body{
+	background: #000;
+}
+html{
+	height: 100vh;
+}
 body {
+	min-height: 100%;
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }

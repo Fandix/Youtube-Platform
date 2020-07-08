@@ -1,14 +1,18 @@
 import React from "react";
 import Header from "./General/Header/Header";
+import Loading from "./General/Loading/Loading"
+import Main from "./Main/Main";
+import style from "./App.module.scss"
 
 class APP extends React.Component{
-    
     render(){
-        console.log(this.props)
+        const { isFetch } = this.props;
         return(
-            <div>
+            <div className={style.wrap}>
                 <Header />
-                APP
+                {
+                    isFetch === true?<Loading />: <Main />
+                }
             </div>
         )
     }
