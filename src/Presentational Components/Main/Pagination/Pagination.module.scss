@@ -1,0 +1,61 @@
+.pagecontainer:after {
+    content: '.';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+.pagecontainer {
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    li{
+        list-style: none;
+        float: left;
+        padding: 0px 8px;
+        cursor: pointer;
+        border: 1px solid #303030;
+        width: 15px;
+        text-align: center;
+        line-height: 41px;
+        font-size: 16px;
+        font-weight: 550;
+        color: #303030;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-left: 5px;
+       
+    }
+    .activePage {
+        color: #fff !important;
+        background: #303030;
+        border-color: #303030 !important;
+        border-radius: 5px;
+    }
+    
+    .nomore {
+        color: #b5b5b5 !important;
+        cursor: not-allowed !important;
+    }
+}
+
+@media screen and (min-width: 960px){
+
+    .pagecontainer {
+        li{
+            cursor: pointer;
+            height: 35px;
+            width: 30px;
+            margin-left: 10px;
+            line-height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    }
+}
+
+

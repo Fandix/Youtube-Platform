@@ -35,3 +35,20 @@ export const FetchResponseReducer = (state=FetchResponseInit,action) => {
             return state;
     }
 };
+
+//=============================== Pagination
+const PaginationInit = {
+    currentPage : 1, //當前頁面
+    groupPage : 3, //預顯示的頁面數(不包含第一頁與最後一頁)
+    startPage : 1, //起始頁面
+    totalPage : 10, //總頁數
+}
+
+export const Pagination = (state=PaginationInit,action) => {
+    switch (action.type) {
+        
+    
+        default:
+            return state;
+    }
+}

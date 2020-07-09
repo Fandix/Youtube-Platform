@@ -31,10 +31,12 @@ class FetchYoutubeSponse extends React.Component{
 
 
     render(){
-        return(
+        console.log(this.state.YoutubeDatas)
+        return(  
             <div>
                 <APP 
                     isFetch={this.state.isFetch}
+                    YoutubeDatas={this.state.YoutubeDatas}
                 />
             </div>
         )

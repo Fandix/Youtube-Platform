@@ -6,12 +6,15 @@ import style from "./App.module.scss"
 
 class APP extends React.Component{
     render(){
-        const { isFetch } = this.props;
+        const { isFetch,YoutubeDatas } = this.props;
         return(
             <div className={style.wrap}>
                 <Header />
                 {
-                    isFetch === true?<Loading />: <Main />
+                    isFetch === true?<Loading />
+                    :<Main 
+                        YoutubeDatas = {YoutubeDatas}
+                    />
                 }
             </div>
         )

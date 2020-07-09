@@ -3,10 +3,11 @@ import  thunkMiddleware   from 'redux-thunk';
 import { createLogger }  from 'redux-logger';
 import { combineReducers } from "redux"
 
-import { FetchResponseReducer } from "./Reducers/MainReducers"
+import { FetchResponseReducer,Pagination } from "./Reducers/MainReducers"
 
 const Reducers = combineReducers({
-    FetchResponseReducer
+    FetchResponseReducer,
+    Pagination
 });
 
 const middleware = applyMiddleware(thunkMiddleware,createLogger());
