@@ -83,10 +83,12 @@
     }
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 959px){
     .wrap{
         width: 1340px;
         .box{
+            width: 90%;
+            margin: 0 auto;
             .logo{
                 .home{
                     svg{
@@ -128,3 +130,10 @@
         }
     }
 }
+
+@media screen and (min-width: 1339px){
+    .wrap{
+       width: 100%;
+    }
+}
+
