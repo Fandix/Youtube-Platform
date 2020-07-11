@@ -52,3 +52,33 @@ export const Pagination = (state=PaginationInit,action) => {
             return state;
     }
 }
+
+//=============================== Collect
+const CollectInit = {
+    postSuccess : false,
+    postFail : false
+}
+
+export const CollectState = (state=CollectInit,action) => {
+    switch (action.type) {
+        case "POST_COLLECT_SUCCESS":
+            return{
+                ...state,
+                postSuccess:true
+            }
+        case "POST_COLLECT_FAIL":
+            return{
+                ...state,
+                postFail:true
+            }
+        case "POST_COLLECT_INIT":    
+            return{
+                ...state,
+                postSuccess:false,
+                postFail:false
+            }
+
+        default:
+            return state;
+    }
+}

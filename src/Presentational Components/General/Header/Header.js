@@ -14,7 +14,7 @@ const Header = (props) => {
                         <p>Youtube</p>
                     </div>
                 </Link>
-                <Link to={"/collect"} className={style.collectLogo}>
+                <Link to={{pathname:"/collect"}} className={style.collectLogo}>
                     <div className={style.collect}>
                         <BsCollectionPlayFill />
                         <div className={style.showMessage}>

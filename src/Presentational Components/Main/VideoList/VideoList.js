@@ -1,28 +1,36 @@
 import React from "react";
 import style from "./VideoList.module.scss";
-import Video from "../Video/Video";
-import { CSSTransition,TransitionGroup } from "react-transition-group";
+import Video from "../Video/Video"
+import { PostCollectInit } from "../../../Redux/Action/MainAction"
+import { toast } from 'react-toastify';
 
 const VideoList = (props) => {
-    const { YoutubeDatas } = props;
+    const { Videos,onCollectClick,dispatch,PostSuccess,PostFail } = props;
+
+    if(PostSuccess === true){
+        dispatch(PostCollectInit());
+        toast.success("Collect Success !");
+    }
+    if(PostFail === true){
+        dispatch(PostCollectInit());
+        toast.error("Collect Fail !");
+    }
+
     return(
         <div className={style.wrap}>
             <div className={style.box}>
-                <TransitionGroup component={null}>
                     {
-                        YoutubeDatas.map(VideoData => {
+                        Videos.map(VideoData => {
                             return(
-                                <CSSTransition classNames={style} timeout={500} key = {VideoData.id}>
-                                    <div key = {VideoData.id} className={style.videos}>
-                                        <Video 
-                                            Video={VideoData}
-                                        />
-                                    </div>
-                                </CSSTransition>
+                                <div key={VideoData.id}  className={style.videos}>
+                                    <Video 
+                                        Video={VideoData}
+                                        onCollectClick = {onCollectClick}
+                                    />
+                                </div>
                             )
                         })
                     }
-                </TransitionGroup>
             </div>
         </div>
     )

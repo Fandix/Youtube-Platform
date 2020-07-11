@@ -31,7 +31,6 @@ class FetchYoutubeSponse extends React.Component{
 
 
     render(){
-        console.log(this.state.YoutubeDatas)
         return(  
             <div>
                 <APP 
