@@ -2,22 +2,46 @@ import React from "react";
 import style from "./Video.module.scss"
 import {AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom"
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class Video extends React.Component{
 
     state = {
-        CollectIcon : false
+        CollectIcon : false,
+        count:0
+    }
+
+    componentDidMount(){
+        if(reactLocalStorage.get(this.props.Video.id) === "true"){
+            this.setState({
+                CollectIcon:Boolean(reactLocalStorage.get(this.props.Video.id))
+            })
+        }else{
+            reactLocalStorage.remove(this.props.Video.id);
+        }
+        
+    }
+
+    PostToLocalStorage = (state,lastState,id,data) => {
+        if(state !== lastState){
+            reactLocalStorage.remove(id);
+            reactLocalStorage.set(id,state);
+            if(state === true){
+                this.props.onCollectClick(data);
+            }else{
+                this.props.CollectCancel(id);
+            }
+        }
     }
 
     /*
         Description : Collect Icon Click
     */
-    CollectClick = (Video) => {
-
+    CollectClick = (Video,state) => {
+        this.PostToLocalStorage(state,this.state.CollectIcon,Video.id,Video);
         this.setState({
-            CollectIcon:!this.state.CollectIcon
+            CollectIcon:!this.state.CollectIcon,
         })
-        this.props.onCollectClick(Video);
     }
 
     /*
@@ -64,11 +88,14 @@ class Video extends React.Component{
         }
     }
 
+   
     render(){
+        //console.log(this.state.CollectIcon)
         const { Video } = this.props;
         const CollectIcon = {
             true:style.active,
             false:style.nonactive,
+            undefined:style.nonactive,
         }
         return(
             <div className={style.wrap}>
@@ -94,7 +121,7 @@ class Video extends React.Component{
                     <div className={style.collect}>
                             <AiFillHeart 
                                 className={CollectIcon[this.state.CollectIcon]}
-                                onClick={() => this.CollectClick(Video)}
+                                onClick={() => this.CollectClick(Video,!this.state.CollectIcon)}
                             />
                     </div>
                 </div>

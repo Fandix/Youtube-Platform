@@ -2,9 +2,15 @@ import React from "react";
 import style from "./CollectVideo.module.scss"
 import {AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom"
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 const CollectVideo = (props) => {
-    console.log(props)
+
+    const onIconClick = (id) => {
+      props.CancelCollect(id);
+      reactLocalStorage.remove(id);
+    }
+
     const VideoLength = (duration) => {
         let tmp = [];
         for (let i = 0; i < duration.length; i++) {
@@ -46,7 +52,7 @@ const CollectVideo = (props) => {
         }
     }
 
-    const { Video,CancelCollect } = props;
+    const { Video } = props;
     return(
         <div className={style.wrap}>
             {/* ********** img ***********/}
@@ -71,7 +77,7 @@ const CollectVideo = (props) => {
                 <div className={style.collect}>
                         <AiFillHeart 
                             className={style.active}  
-                            onClick={() => CancelCollect(Video.id)}
+                            onClick={() => onIconClick(Video.id)}
                         />
                 </div>
             </div>    

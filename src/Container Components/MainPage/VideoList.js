@@ -1,12 +1,14 @@
 import { connect } from "react-redux";
 import VideoList from "../../Presentational Components/Main/VideoList/VideoList"
 
-import { PostCollect } from "../../Redux/Action/MainAction"
+import { PostCollect,Delete_Collect } from "../../Redux/Action/MainAction"
 
 const mapStateToProps = (state) => {
     return{
         PostSuccess:state.CollectState.postSuccess,
         PostFail:state.CollectState.postFail,
+        DeleteSuccess:state.MainCollectDeleteReducers.DeleteSuccess,
+        DeleteFail:state.MainCollectDeleteReducers.DeleteFail,
     }
 };
 
@@ -17,6 +19,9 @@ const mapDispatchToProps = (dispatch,ownProps) => {
             dispatch(PostCollect(data));
         },
         dispatch:dispatch,
+        CollectCancel:(id) => {
+            dispatch(Delete_Collect(id))
+        }
     }
 };
 

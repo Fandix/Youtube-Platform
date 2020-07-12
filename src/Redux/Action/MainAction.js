@@ -33,7 +33,14 @@ export const Fetch_Response = (PageToken = "") => {
     }
 };
 
-//====================================  Collect
+//====================================  Post Collect
+export const PostIconsState = (id) => {
+    return{
+        type:"POST_ICON_CHANGE",
+        id
+    }
+}
+
 export const PostCollectInit = () => {
     return{
         type : "POST_COLLECT_INIT"
@@ -59,6 +66,36 @@ export const PostCollect = (data) => {
         })
         .catch(err => {
             dispatch(PostCollectState(null,err));
+        })
+    }
+}
+
+//====================================  Delete Collect
+export const DeleteCollectInit = () => {
+    return{
+        type : "DELETE_COLLECT_INIT"
+    }
+}
+
+const Delete_Collect_State = (res,err) => {
+    if(res){
+        return{
+            type : "COLLECT_DELETE_SUCCESS",
+        }
+    }
+    return{
+        type : "COLLECT_DELETE_FAIL",
+    }
+}
+
+export const Delete_Collect = (id) => {
+    return (dispatch) => {
+        axios.delete(`http://localhost:3004/Collect/${id}`)
+        .then(res => {
+            dispatch(Delete_Collect_State(res,null));
+        })
+        .catch(err => {
+            dispatch(Delete_Collect_State(null,err));
         })
     }
 }

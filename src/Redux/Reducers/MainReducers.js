@@ -53,10 +53,12 @@ export const Pagination = (state=PaginationInit,action) => {
     }
 }
 
-//=============================== Collect
+//=============================== Post Collect
 const CollectInit = {
     postSuccess : false,
-    postFail : false
+    postFail : false,
+    postIconState:false,
+    postIcon:{}
 }
 
 export const CollectState = (state=CollectInit,action) => {
@@ -82,3 +84,33 @@ export const CollectState = (state=CollectInit,action) => {
             return state;
     }
 }
+
+//=============================== Post Collect
+const MainDeleteCollectInit = {
+    DeleteSuccess:false,
+    DeleteFail:false
+}
+
+export const MainCollectDeleteReducers = (state=MainDeleteCollectInit,action) => {
+    switch (action.type) {
+        case "COLLECT_DELETE_SUCCESS":
+           return{
+               ...state,
+               DeleteSuccess:true
+           }
+        case "COLLECT_DELETE_FAIL":
+            return{
+                ...state,
+                DeleteFail:true
+            }    
+        case "DELETE_COLLECT_INIT":
+            return{
+                ...state,
+                DeleteSuccess:false,
+                DeleteFail:false
+            }
+    
+        default:
+            return state;
+    }
+};
