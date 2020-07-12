@@ -3,7 +3,9 @@ const FetchResponseInit = {
     YoutubeDatas : [],
     isFetch : false,
     didInvalidata : false,
-    fetchFail : false
+    fetchFail : false,
+    next:null,
+    prev:null
 };
 
 export const FetchResponseReducer = (state=FetchResponseInit,action) => {
@@ -20,8 +22,10 @@ export const FetchResponseReducer = (state=FetchResponseInit,action) => {
                 ...state,
                 isFetch : false,
                 didInvalidata : false,
-                YoutubeDatas : action.payload,
-                fetchFail : false
+                YoutubeDatas : action.payload.items,
+                fetchFail : false,
+                next:action.payload.nextPageToken,
+                prev:action.payload.prevPageToken
             }
         case "FETCH_RESPONSE_FAIL":
             return{

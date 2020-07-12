@@ -22,7 +22,7 @@ const Fetch_Response_State = (res,err) => {
 
 export const Collect_Fetch_Response = () => {
     return(dispatch) => {
-        axios.get("http://localhost:3004/Collect")
+        axios.get("https://stormy-citadel-71123.herokuapp.com/Collect")
         .then(res => {
             dispatch(Fetch_Response_State(res,null));
         })
@@ -52,7 +52,7 @@ const Delete_Collect_State = (res,err) => {
 
 export const Delete_Collect = (id) => {
     return (dispatch) => {
-        axios.delete(`http://localhost:3004/Collect/${id}`)
+        axios.delete(`https://stormy-citadel-71123.herokuapp.com/Collect/${id}`)
         .then(res => {
             dispatch(Delete_Collect_State(res,null));
             dispatch(Collect_Fetch_Response());

@@ -8,10 +8,11 @@ export const RequestPost = () => {
 };
 //====================================  Request Youtube Response
 const Fetch_Response_State = (res,err) => {
+    console.log(res)
     if(res){
         return{
             type : "FETCH_RESPONSE_SUCCESS",
-            payload : res.data[0].items
+            payload : res.data,
         }
     }
     return{
@@ -22,8 +23,8 @@ const Fetch_Response_State = (res,err) => {
 //https://stormy-citadel-71123.herokuapp.com/
 export const Fetch_Response = (PageToken = "") => {
     return(dispatch) => {
-        axios.get("https://stormy-citadel-71123.herokuapp.com/videos")
-        // axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=1&key=AIzaSyDebFSPt9F9dhBmLoRRlANsWV217WRD11I&pageToken=${PageToken}`)
+        //axios.get("https://stormy-citadel-71123.herokuapp.com/videos")
+        axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=12&key=AIzaSyDebFSPt9F9dhBmLoRRlANsWV217WRD11I&pageToken=${PageToken}`)
         .then(res => {
             dispatch(Fetch_Response_State(res,null));
         })
@@ -60,7 +61,7 @@ const PostCollectState = (res,err) => {
 
 export const PostCollect = (data) => {
     return (dispatch) => {
-        axios.post("http://localhost:3004/Collect",data)
+        axios.post("https://stormy-citadel-71123.herokuapp.com/Collect",data)
         .then(res => {
             dispatch(PostCollectState(res,null));
         })
@@ -90,7 +91,7 @@ const Delete_Collect_State = (res,err) => {
 
 export const Delete_Collect = (id) => {
     return (dispatch) => {
-        axios.delete(`http://localhost:3004/Collect/${id}`)
+        axios.delete(`https://stormy-citadel-71123.herokuapp.com/Collect/${id}`)
         .then(res => {
             dispatch(Delete_Collect_State(res,null));
         })

@@ -13,7 +13,6 @@
     margin-bottom: 15px;
     li{
         list-style: none;
-        float: left;
         padding: 0px 8px;
         cursor: pointer;
         border: 1px solid #303030;
@@ -25,19 +24,16 @@
         color: #303030;
         background-color: #fff;
         border-radius: 5px;
-        margin-left: 5px;
+        margin-left: 30px;
        
     }
-    .activePage {
-        color: #fff !important;
-        background: #303030;
-        border-color: #303030 !important;
-        border-radius: 5px;
-    }
-    
+
     .nomore {
+        cursor: not-allowed;
         color: #b5b5b5 !important;
-        cursor: not-allowed !important;
+    }
+    .action{
+        cursor: pointer;
     }
 }
 
@@ -46,14 +42,24 @@
     .pagecontainer {
         li{
             cursor: pointer;
-            height: 35px;
-            width: 30px;
-            margin-left: 10px;
+            height: 50px;
+            width: 50px;
+            margin-left: 50px;
             line-height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            
+            transition: .6s;
+            svg{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        li:hover{
+            background-color: #303030;
+            svg{
+                color: #fff;
+            }
         }
     }
 }
