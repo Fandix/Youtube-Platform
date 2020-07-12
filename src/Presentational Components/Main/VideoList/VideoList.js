@@ -3,13 +3,14 @@ import style from "./VideoList.module.scss";
 import Video from "../Video/Video"
 import { PostCollectInit } from "../../../Redux/Action/MainAction"
 import { toast } from 'react-toastify';
+import { CSSTransition,TransitionGroup } from "react-transition-group";
 
 const VideoList = (props) => {
     const { Videos,onCollectClick,dispatch,PostSuccess,PostFail } = props;
 
     if(PostSuccess === true){
         dispatch(PostCollectInit());
-        toast.success("Collect Success !");
+        toast.dark("Collect Success !");
     }
     if(PostFail === true){
         dispatch(PostCollectInit());

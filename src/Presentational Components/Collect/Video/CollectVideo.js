@@ -2,7 +2,6 @@ import React from "react";
 import style from "./CollectVideo.module.scss"
 import {AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom"
-import { Collect_Fetch_Response } from "../../../Redux/Action/CollectAction"
 
 const CollectVideo = (props) => {
     console.log(props)

@@ -33,6 +33,11 @@ export const Collect_Fetch_Response = () => {
 };
 
 //====================================  Delete Collect Video
+export const DeleteCollectInit = () => {
+    return{
+        type : "DELETE_COLLECT_INIT"
+    }
+}
 
 const Delete_Collect_State = (res,err) => {
     if(res){
@@ -50,6 +55,7 @@ export const Delete_Collect = (id) => {
         axios.delete(`http://localhost:3004/Collect/${id}`)
         .then(res => {
             dispatch(Delete_Collect_State(res,null));
+            dispatch(Collect_Fetch_Response());
         })
         .catch(err => {
             dispatch(Delete_Collect_State(null,err));

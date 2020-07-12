@@ -4,14 +4,15 @@ import { createLogger }  from 'redux-logger';
 import { combineReducers } from "redux"
 
 import { FetchResponseReducer,Pagination,CollectState } from "./Reducers/MainReducers"
-import { CollectFetchResponseReducer } from "./Reducers/CollectReducers"
+import { CollectFetchResponseReducer,CollectDeleteReducers } from "./Reducers/CollectReducers"
 
 const Reducers = combineReducers({
     FetchResponseReducer,
     Pagination,
     CollectState,
     //-------------------------------//
-    CollectFetchResponseReducer
+    CollectFetchResponseReducer,
+    CollectDeleteReducers
 });
 
 const middleware = applyMiddleware(thunkMiddleware,createLogger());

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../General/Header/Header"
 import Loading from "../General/Loading/Loading"
 import CollectVideoContainer from "../../Container Components/Collect/CollectVideoList"
+import "./reset.css"
 
 const CollectMain = (props) => {
     const { isFetch,CollectDatas } = props;

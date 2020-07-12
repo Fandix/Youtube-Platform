@@ -65,7 +65,7 @@ class Video extends React.Component{
     }
 
     render(){
-        const { Video,onCollectClick } = this.props;
+        const { Video } = this.props;
         const CollectIcon = {
             true:style.active,
             false:style.nonactive,
