@@ -1,6 +1,8 @@
 # 使用React實現一個小型的Youtube影音平台
 透過React與Redux來實現一個小型的Youtube影音平台，使用Axios進行網路請求(GET,POST)，也使用了React-Router-dom分別建立了主頁面(/),收藏頁面(/collect),影音撥放頁面(/video/id)，而影音撥放則是使用了第三方API Video-React來完成，而RWD部分則是使用了手刻CSS，分別做出了手機，平板，電腦三個不同的畫面。
 
+點擊主頁面影片的愛心可以將此影片收藏，可在Collect頁面中看到所以有收藏的影片，在點擊一次便可以將收藏取消，而要取消收藏也可以到收藏頁面，將收藏的影片愛心點掉也可以取消，而在主頁面與收藏頁面都可以透過點擊影片的圖片進到影片撥放頁面。
+
 # Demo
 Live URL : https://youtube-platform.vercel.app/<br>
 
