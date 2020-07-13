@@ -4,7 +4,7 @@
 點擊主頁面影片的愛心可以將此影片收藏，可在Collect頁面中看到所以有收藏的影片，在點擊一次便可以將收藏取消，而要取消收藏也可以到收藏頁面，將收藏的影片愛心點掉也可以取消，而在主頁面與收藏頁面都可以透過點擊影片的圖片進到影片撥放頁面。
 
 # Demo
-Live URL : https://youtube-platform.vercel.app/<br>
+Live URL : https://youtube-platform.fandix.vercel.app/<br>
 
 ## 電腦畫面
 ![PC Main Page](https://ithelp.ithome.com.tw/upload/images/20200712/20124767cuoDqWRmve.png)<br>
